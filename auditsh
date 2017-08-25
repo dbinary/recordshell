@@ -1,0 +1,34 @@
+#!/bin/bash -l
+
+# Variables for filename format
+IDENT="$(whoami).$$.$(date --date="today" "+%Y-%m-%d_%H-%M-%S")"
+LOG="${IDENT}${TICKET}.json"
+
+# Asciinema binary
+ASCIINEMA="/bin/asciinema"
+
+# Hack for SHELL environment variable
+export SHELL=/bin/bash
+
+# Disclaimer
+cat <<EOF
+
+###############################################################
+#                 Authorized access only!                     #
+# Disconnect IMMEDIATELY if you are not an authorized user!!! #
+#         All actions Will be monitored and recorded          #
+###############################################################
+
+EOF
+
+# Read ticket number for support purpose
+read -p "Please enter ticket number: " TICKET
+if [ -z ${TICKET} ]
+then
+    exit 1
+fi
+
+# execute terminal session
+${ASCIINEMA} rec -q  /var/log/remote-sessions/${LOG}
+
+echo "Finish"
