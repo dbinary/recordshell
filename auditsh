@@ -11,15 +11,12 @@ ASCIINEMA="/bin/asciinema"
 export SHELL=/bin/bash
 
 # Disclaimer
-cat <<EOF
-
+echo -e "\n
 ###############################################################
-#                 Authorized access only!                     #
-# Disconnect IMMEDIATELY if you are not an authorized user!!! #
-#         All actions Will be monitored and recorded          #
-###############################################################
-
-EOF
+#                \e[92mAuthorized access only!\e[39m                      #          
+# \e[31mDisconnect IMMEDIATELY if you are not an authorized user!!!\e[39m #
+#         \e[92mAll actions Will be monitored and recorded\e[39m          #
+###############################################################"
 
 # Read ticket number for support purpose
 read -p "Please enter ticket number: " TICKET
